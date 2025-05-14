@@ -1,4 +1,5 @@
 :: Minecraft server run script
+:: Version 1.0
 :: Source: github.com/duckysmacky/mc-server-run
 
 :: Disables command output

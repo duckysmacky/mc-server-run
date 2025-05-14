@@ -8,7 +8,7 @@ I've been personally using the most basic version of this script to start my own
 
 ## Usage
 
-1. Download the `run.bat` file
+1. Download the `run.bat` file from the [Releases](https://github.com/duckysmacky/mc-server-run/releases) page
 2. Place the file in the server's root (main) directory
 3. Edit the script to configure server's jar and memory limits
 4. Double click the `run.bat` file to start the server!
