@@ -11,7 +11,7 @@ setlocal
 :: Config
 :: ------------------------------------
 
-:: Name and location of the server's .jar file
+:: Name and location of the server's .jar file (required)
 set serverJar=server.jar
 
 :: Minimum allocated memory (1024M, 2G, etc.)
@@ -37,7 +37,7 @@ set maxRam=6144M
 :: Scipt execution (Don't change)
 :: ------------------------------------
 set javaCommand=java
-set playitCommand=playit
+set playitCommand=playit start
 
 :: Min ram
 if defined minRam (
