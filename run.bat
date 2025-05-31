@@ -55,7 +55,7 @@ if defined maxRam (
 )
 
 :: Mod changes confirm
-if defined maxRam (
+if defined confirmModChanges (
 	if "%confirmModChanges%"=="true" (
 		set javaCommand=%javaCommand% -Dfml.queryResult=confirm
 	)
