@@ -1,11 +1,15 @@
 :: Minecraft server run script
-:: Version 1.0
+:: Version 1.1
 :: Source: github.com/duckysmacky/mc-server-run
+
+
 
 :: Disables command output
 @echo off
 :: Make variables local
 setlocal
+
+
 
 :: ------------------------------------
 :: Config
@@ -20,13 +24,13 @@ set minRam=1024M
 :: Maximum allocated memory (1024M, 2G, etc.)
 set maxRam=6144M
 
-:: Confirm mod changes (don't warn about missing mods) (true/false)
+:: Confirm mod changes (don't warn about missing mods) [true/false]
 ::set confirmModChanges=true
 
-:: Enable Playit.gg automatic startup (true/false)
+:: Enable Playit.gg automatic startup [true/false]
 ::set enablePlayit=true
 
-:: Set additional java parameters to be passed to the command (advanced)
+:: Set additional java parameters to be passed to the command [string]
 ::set javaParameters=""
 
 :: ------------------------------------
@@ -34,8 +38,9 @@ set maxRam=6144M
 
 
 :: ------------------------------------
-:: Scipt execution (Don't change)
+:: Scipt execution
 :: ------------------------------------
+
 set javaCommand=java
 set playitCommand=playit start
 
@@ -50,8 +55,10 @@ if defined maxRam (
 )
 
 :: Mod changes confirm
-if defined maxRam if %confirmModChanges%==true (
-    set javaCommand=%javaCommand% -Dfml.queryResult=confirm
+if defined maxRam (
+	if "%confirmModChanges%"=="true" (
+		set javaCommand=%javaCommand% -Dfml.queryResult=confirm
+	)
 )
 
 :: Finalize
@@ -59,8 +66,12 @@ set javaCommand=%javaCommand% -jar %serverJar% nogui
 
 start "Server Console" cmd /c "%javaCommand%"
 
-if defined enablePlayit if %enablePlayit%==true (
-    start "Playit.gg" cmd /c "%playitCommand%"
+if defined enablePlayit (
+	if "%enablePlayit%"=="true" (
+		start "Playit.gg" cmd /c "%playitCommand%"
+	)
 )
+
+:: ------------------------------------
 
 endlocal
